@@ -1,0 +1,11 @@
+{
+  "name": "@workspace/assets",
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    "./images/*": "./images/*.{svg,png,jpg,jpeg,webp}"
+  },
+   "files": [
+    "/images/**/*"
+  ]
+}

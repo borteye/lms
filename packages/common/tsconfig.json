@@ -3,8 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@workspace/ui/*": ["./src/*"],
-      "@workspace/assets/*": ["../assets/*"]
+      "@workspace/common/*": ["./src/*"],
+      "@workspace/assets/*": ["../assets/*"],
+      "@workspace/ui/*": ["../ui/src/*"]
     }
   },
   "include": [".", "workspace.d.ts" ],

@@ -1,33 +1,28 @@
 {
-  "name": "student",
-  "version": "0.0.1",
+  "name": "@workspace/auth",
+  "version": "0.0.0",
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack --port 3000",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
-    "typecheck": "tsc --noEmit"
+    "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {
     "@workspace/assets": "workspace:^",
-    "@workspace/common": "workspace:*",
     "@workspace/ui": "workspace:*",
-    "@workspace/auth": "workspace:*",
+    "@workspace/common": "workspace:*",
     "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "lucide-react": "^0.475.0",
     "next": "^15.2.3",
-    "next-themes": "^0.4.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@turbo/gen": "^2.4.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@workspace/eslint-config": "workspace:^",
+    "@workspace/eslint-config": "workspace:*",
     "@workspace/typescript-config": "workspace:*",
     "typescript": "^5.7.3"
   }
