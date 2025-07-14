@@ -1,0 +1,14 @@
+{
+  "extends": "@workspace/typescript-config/nextjs.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@workspace/auth/*": ["./src/*"],
+      "@workspace/common/*": ["../common/*"],
+      "@workspace/assets/*": ["../assets/*"],
+      "@workspace/ui/*": ["../ui/src/*"]
+    }
+  },
+  "include": [".", "workspace.d.ts" ],
+  "exclude": ["node_modules", "dist"]
+}
