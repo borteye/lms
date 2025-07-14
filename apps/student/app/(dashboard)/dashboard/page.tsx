@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@workspace/ui/components/button";
 import { ArrowRight, CalendarDays, FileText } from "lucide-react";
 import EmptyState from "@workspace/common/components/empty-state";
