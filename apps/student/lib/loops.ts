@@ -34,3 +34,14 @@ export const dashboardEmptyStates = [
       "Once you begin a course, you'll be able to track your assignments deadlines in this space.",
   },
 ];
+
+export const courseTabs = [
+  {
+    id: "overview",
+    label: "Overview",
+  },
+  {
+    id: "module",
+    label: "Module",
+  },
+];

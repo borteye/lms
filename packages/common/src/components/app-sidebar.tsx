@@ -36,7 +36,7 @@ export function AppSidebar() {
               {navigationItems.map((item) => (
                 <SidebarMenuItem key={item.id}>
                   <SidebarMenuButton
-                    isActive={item.href.includes(path)}
+                    isActive={path.includes(item.href)}
                     asChild
                   >
                     <a href={item.href}>
