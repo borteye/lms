@@ -85,7 +85,7 @@ export default function CourseCard({ role }: { role: Props["role"] }) {
       )}
 
       {role === "admin" && (
-        <CardFooter>
+        <CardFooter className="flex gap-6">
           <Button variant="ghost" className="text-primary">
             <SquarePen />
             <span>Edit</span>
