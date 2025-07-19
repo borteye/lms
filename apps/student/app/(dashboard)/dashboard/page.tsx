@@ -1,8 +1,9 @@
 import { Button } from "@workspace/ui/components/button";
 import { ArrowRight, CalendarDays, FileText } from "lucide-react";
-import EmptyState from "@workspace/common/components/empty-state";
+import EmptyState from "@workspace/common/components/dashboard-empty-state";
 import { dashboardEmptyStates } from "@/lib/loops";
-import MostRecentCourses from "@/components/dashboard/most-recent-courses";
+import CoursesCommon from "@workspace/common/components/courses-common";
+import CourseCard from "@workspace/common/components/course-card";
 
 export default function Dashboard() {
   const old = true;
@@ -63,7 +64,15 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-      <MostRecentCourses />
+      <div>
+        <h1 className="text-lg font-semibold mb-6">Most Recent Courses</h1>
+        <CoursesCommon>
+          <CourseCard role="student" />
+          <CourseCard role="student" />
+          <CourseCard role="student" />
+          <CourseCard role="student" />
+        </CoursesCommon>
+      </div>
     </div>
   );
 }

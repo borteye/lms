@@ -1,6 +1,5 @@
 import { Button } from "@workspace/ui/components/button";
-import { cn } from "@workspace/ui/lib/utils";
-import { CalendarDays, LucideIcon } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 
 interface Props {
   id: number;

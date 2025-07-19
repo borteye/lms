@@ -4,6 +4,7 @@ import courseBanner from "@workspace/assets/images/course-banner.png";
 import { Progress } from "@workspace/ui/components/progress";
 import CourseContentSection from "@/components/courses/course-content-section";
 
+
 export default function CourseDetails() {
   return (
     <div>
