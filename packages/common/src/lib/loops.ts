@@ -5,7 +5,8 @@ import {
   FileText,
   GraduationCap,
   MessageSquare,
-  LogOut
+  LogOut,
+  Users
 } from "lucide-react";
 
 export const navigationItems = [
@@ -17,11 +18,25 @@ export const navigationItems = [
     permissions: ["lecturer", "admin", "student"],
   },
   {
+    id: "users",
+    label: "User Management",
+    icon: Users,
+    href: "/user-management",
+    permissions: ["admin"],
+  },
+  {
     id: "courses",
     label: "My Courses",
     icon: BookOpen,
     href: "/courses",
     permissions: ["student"],
+  },
+  {
+    id: "courses",
+    label: "Courses",
+    icon: BookOpen,
+    href: "/courses",
+    permissions: ["admin", "lecturer"],
   },
   {
     id: "assignments",
