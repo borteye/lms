@@ -4,7 +4,7 @@
     "baseUrl": ".",
     "paths": {
       "@workspace/auth/*": ["./src/*"],
-      "@workspace/common/*": ["../common/*"],
+      "@workspace/common/*": ["../common/src/*"],
       "@workspace/assets/*": ["../assets/*"],
       "@workspace/ui/*": ["../ui/src/*"]
     }

@@ -11,8 +11,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@workspace/ui/components/form";
-import { useForm } from "@workspace/ui/lib/index";
-import { zodResolver } from "@workspace/ui/lib/index";
+import { useForm , zodResolver} from "@workspace/ui/lib/client";
 import { forgotPasswordSchema } from "./lib/schema";
 export default function ForgotPassword() {
   const defaultValues = {

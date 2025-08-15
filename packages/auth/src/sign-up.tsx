@@ -1,9 +1,5 @@
 "use client";
 
-import { Input } from "@workspace/ui/components/input";
-import Common from "./components/common";
-import { Eye, EyeClosed } from "lucide-react";
-import { Button } from "@workspace/ui/components/button";
 import {
   Form,
   FormControl,
@@ -12,30 +8,18 @@ import {
   FormLabel,
   FormMessage,
 } from "@workspace/ui/components/form";
-import { useForm } from "@workspace/ui/lib/index";
-import { zodResolver } from "@workspace/ui/lib/index";
-import { useState } from "react";
-import { signUpSchema } from "./lib/schema";
+import { Input } from "@workspace/ui/components/input";
+import LoaderButton from "@workspace/ui/components/loader-button";
+import { Eye, EyeClosed } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
+import Common from "./components/common";
+import useSignUp from "./hooks/use-sign-up";
 
 export default function SignUp() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
-  const defaultValues = {
-    first_name: "",
-    last_name: "",
-    email: "",
-    password: "",
-    confirm_password: "",
-  };
-  const form = useForm<typeof defaultValues>({
-    defaultValues,
-    resolver: zodResolver(signUpSchema),
-  });
-
-  const onSubmit = (data: typeof defaultValues) => {
-    console.log(data);
-  };
+const {form, onSubmit} = useSignUp()
   return (
     <Common>
       <>
@@ -61,7 +45,7 @@ export default function SignUp() {
               <div className="flex-1 ">
                 <FormField
                   control={form.control}
-                  name="first_name"
+                  name="firstName"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>First name</FormLabel>
@@ -70,7 +54,7 @@ export default function SignUp() {
                           placeholder="Ohemaa"
                           {...field}
                           variant={
-                            form.formState.errors.first_name
+                            form.formState.errors.firstName
                               ? "outline_destructive"
                               : "outline"
                           }
@@ -84,7 +68,7 @@ export default function SignUp() {
               <div className="flex-1">
                 <FormField
                   control={form.control}
-                  name="last_name"
+                  name="lastName"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Last name</FormLabel>
@@ -93,7 +77,7 @@ export default function SignUp() {
                           placeholder="Addo"
                           {...field}
                           variant={
-                            form.formState.errors.last_name
+                            form.formState.errors.lastName
                               ? "outline_destructive"
                               : "outline"
                           }
@@ -158,7 +142,7 @@ export default function SignUp() {
             />
             <FormField
               control={form.control}
-              name="confirm_password"
+              name="passwordConfirmation"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Confirm Password</FormLabel>
@@ -168,7 +152,7 @@ export default function SignUp() {
                         placeholder="your password"
                         type={showPassword ? "text" : "password"}
                         variant={
-                          form.formState.errors.confirm_password
+                          form.formState.errors.passwordConfirmation
                             ? "outline_destructive"
                             : "outline"
                         }
@@ -186,7 +170,9 @@ export default function SignUp() {
                 </FormItem>
               )}
             />
-            <Button size="lg">Create Account</Button>
+            <LoaderButton loading={form.formState.isSubmitting} size="lg">
+              {form.formState.isSubmitting ? "Creating" : "Create Account"}
+            </LoaderButton>
           </form>
         </Form>
       </>

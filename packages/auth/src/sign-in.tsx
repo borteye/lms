@@ -3,7 +3,7 @@
 import { Input } from "@workspace/ui/components/input";
 import Common from "./components/common";
 import { Eye, EyeClosed } from "lucide-react";
-import { Button } from "@workspace/ui/components/button";
+import LoaderButton from "@workspace/ui/components/loader-button";
 import Link from "next/link";
 import {
   Form,
@@ -13,38 +13,32 @@ import {
   FormLabel,
   FormMessage,
 } from "@workspace/ui/components/form";
-import { useForm } from "@workspace/ui/lib/index";
-import { zodResolver } from "@workspace/ui/lib/index";
 import { useState } from "react";
-import { signInSchema } from "./lib/schema";
+import useSignIn from "./hooks/use-sign-in";
 
-export default function SignIn() {
+export default function SignIn({ admin }: { admin?: boolean }) {
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
-  const defaultValues = {
-    email: "",
-    password: "",
-  };
-  const form = useForm<typeof defaultValues>({
-    defaultValues,
-    resolver: zodResolver(signInSchema),
-  });
+  const { form, onSubmit } = useSignIn();
 
-  const onSubmit = (data: typeof defaultValues) => {
-    console.log(data);
-  };
   return (
     <Common>
       <>
         <div>
           <h1 className="text-2xl font-bold">Welcome Back</h1>
-          <p className="mt-2 ">Login to continue your learning.</p>
-          <p className="font-light mt-4">
-            Don't have an account?{" "}
-            <Link className="font-bold text-primary" href="/sign-up">
-              Create an account
-            </Link>
-          </p>
+          {admin ? (
+            <p className="mt-2 ">Login to continue managing your school.</p>
+          ) : (
+            <p className="mt-2 ">Login to continue your learning.</p>
+          )}
+          {admin && (
+            <p className="font-light mt-4">
+              Don't have an account?{" "}
+              <Link className="font-bold text-primary" href="/sign-up">
+                Create an account
+              </Link>
+            </p>
+          )}
         </div>
 
         <Form {...form}>
@@ -103,7 +97,9 @@ export default function SignIn() {
             >
               Forgot Password
             </Link>
-            <Button size="lg">Log In</Button>
+            <LoaderButton loading={form.formState.isSubmitting} size="lg">
+              {form.formState.isSubmitting ? "Logging in" : "Log In"}
+            </LoaderButton>
           </form>
         </Form>
       </>
