@@ -5,9 +5,9 @@
     "paths": {
       "@workspace/common/*": ["./src/*"],
       "@workspace/assets/*": ["../assets/*"],
-      "@workspace/ui/*": ["../ui/src/*"]
+      "@workspace/ui/*": ["../ui/src/*"],
     }
   },
-  "include": [".", "workspace.d.ts" ],
+  "include": ["."],
   "exclude": ["node_modules", "dist"]
 }

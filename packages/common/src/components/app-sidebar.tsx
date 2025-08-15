@@ -15,7 +15,9 @@ import Image from "next/image";
 import logo from "@workspace/assets/images/logo.png";
 import { usePathname } from "next/navigation";
 import { bottomItems, navigationItems } from "../lib/loops";
-export function AppSidebar() {
+import { Role } from "../types";
+
+export function AppSidebar({role}:{role?: Role}) {
   const path = usePathname();
 
   return (
@@ -33,7 +35,7 @@ export function AppSidebar() {
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
-              {navigationItems.map((item) => (
+              {navigationItems.filter((item) => item.permissions.includes(role ?? "student")).map((item) => (
                 <SidebarMenuItem key={item.id}>
                   <SidebarMenuButton
                     isActive={path.includes(item.href)}

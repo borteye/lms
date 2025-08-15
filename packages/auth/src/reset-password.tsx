@@ -12,8 +12,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@workspace/ui/components/form";
-import { useForm } from "@workspace/ui/lib/index";
-import { zodResolver } from "@workspace/ui/lib/index";
+import { useForm, zodResolver } from "@workspace/ui/lib/client";
 import { useState } from "react";
 import { resetPasswordSchema } from "./lib/schema";
 
@@ -22,7 +21,7 @@ export default function ResetPassword() {
 
   const defaultValues = {
     password: "",
-    confirm_password: "",
+    passwordConfirmation: "",
   };
   const form = useForm<typeof defaultValues>({
     defaultValues,
@@ -79,7 +78,7 @@ export default function ResetPassword() {
             />
             <FormField
               control={form.control}
-              name="confirm_password"
+              name="passwordConfirmation"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Confirm Password</FormLabel>
@@ -89,7 +88,7 @@ export default function ResetPassword() {
                         placeholder="your password"
                         type={showPassword ? "text" : "password"}
                         variant={
-                          form.formState.errors.confirm_password
+                          form.formState.errors.passwordConfirmation
                             ? "outline_destructive"
                             : "outline"
                         }
