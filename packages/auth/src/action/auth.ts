@@ -25,6 +25,8 @@ export async function signInAction(
   );
 
   if ("error" in response) {
+    console.log("response", response);
+    console.log("response error", response.error);
     return [null, response.error as ApiResponse<never>];
   }
 
