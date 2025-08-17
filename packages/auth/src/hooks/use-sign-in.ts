@@ -6,7 +6,6 @@ import { signInSchema } from "../lib/schema";
 import { signInAction } from "../action/auth";
 
 export default function useSignIn() {
-
   const defaultValues = {
     email: "",
     password: "",
@@ -21,6 +20,7 @@ export default function useSignIn() {
       const [response, error] = await signInAction(data);
 
       if (error) {
+        console.log("error", error);
         const errorMessage =
           error.errors?.[0]?.errorMessage ||
           error.message ||
